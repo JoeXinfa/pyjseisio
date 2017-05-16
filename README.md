@@ -1,17 +1,17 @@
-#pyjseisio
+# pyjseisio
 
 This project attempts to enable JavaSeis IO capability in Python by providing SWIG wrappers for the C++ [JSeisIO JavaSeis library](http://jseisio.com/). 
 
-##Status
+## Status
 Just enough of a SWIG interface has been written to allow basic reading of JavaSeis files. This includes opening a file and collecting metadata (extents, axis definitions, header words, etc), and reading single frames, both trace amplitudes and headers. Trace data and headers are returned as NumPy `ndarray` data.
 
-##Dependencies
+## Dependencies
 * NumPy
 * JSeisIO
 * cmake (for JSeisIO)
 * SWIG
 
-##Building JSeisIO
+## Building JSeisIO
 The JSeisIO library can be downloaded [here](http://jseisio.com/index.php/download). It can be built and installed (on Linux) by:
 ```
 tar -xvf jseisIO-1.0.0-Source.tar.gz
@@ -21,10 +21,10 @@ make
 sudo make install
 ```
 
-##Installation
+## Installation
 If you have JSeisIO and NumPy (and SWIG) installed, then it should be as easy as running `python setup.py install`. If JSeisIO is installed in a non-path location, then you should set the `library_dirs` command in `setup.cfg`, and if you don't want to set `LD_LIBRARY_PATH`, then you should also set `rpath`.
 
-##API Examples
+## API Examples
 Jupyter notebooks are available in the `demo/` directory which demonstrate use of `pyjseisio`:
 * [Basic reading](./demo/basic.ipynb)
 
@@ -50,7 +50,7 @@ hdrBuf = dataset.readFrameHeader(0)      # read the header buffer from frame 0
 dataset.hdrs['OFFSET'].getVal(hdrBuf[0]) # returns the value of the OFFSET header for trace 0
 ```
 
-##TODO
+## TODO
 * Finish implementing methods from jsFileReader
 * More convenience methods? Maybe get array of values for one header from headerFrameBuffer?
 * Fix JS_BYTORDER
